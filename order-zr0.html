@@ -1,0 +1,823 @@
+<html><head><base href="." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechSavvy - الدعم الفني المتخصص</title>
+
+<meta property="og:title" content="TechSavvy - الدعم الفني المتخصص">
+<meta property="og:description" content="خدمات الدعم الفني المتخصصة وحلول تقنية متكاملة - تطوير مواقع، حلول برمجية، دعم فني 24/7">
+<meta property="og:image" content="https://i.postimg.cc/hvYswmtw/image.png">
+<meta property="og:url" content="https://techsavvy.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechSavvy">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TechSavvy - الدعم الفني المتخصص">
+<meta name="twitter:description" content="خدمات الدعم الفني المتخصصة وحلول تقنية متكاملة - تطوير مواقع، حلول برمجية، دعم فني 24/7">
+<meta name="twitter:image" content="https://i.postimg.cc/hvYswmtw/image.png">
+
+<meta name="theme-color" content="#1a237e">
+
+<link rel="icon" type="image/png" href="https://i.postimg.cc/hvYswmtw/image.png">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/hvYswmtw/image.png">
+<link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/hvYswmtw/image.png">
+
+<style>
+:root {
+  --primary: #1a237e;
+  --secondary: #7c4dff;
+  --accent: #ff4081;
+  --background: #f5f5f5;
+  --text: #212121;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(135deg, var(--background), #fff);
+  color: var(--text);
+  direction: rtl;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(255,255,255,0.1)' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  opacity: 0.4;
+}
+
+.logo {
+  max-width: 200px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  margin-top: 1.5rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--secondary);
+  border-radius: 30px;
+  outline: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(124,77,255,0.2);
+}
+
+.section {
+  display: none;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section.active {
+  display: block;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.service-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(124,77,255,0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(124,77,255,0.2);
+  border-color: var(--secondary);
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-info {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 3rem 1rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  text-align: right;
+}
+
+.footer-section h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.submit-btn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: var(--primary);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Add to existing CSS */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.privacy-modal {
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  border-radius: 20px;
+  padding: 2rem;
+  overflow-y: auto;
+  position: relative;
+  direction: rtl;
+}
+
+.tour-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: absolute;
+  z-index: 1000;
+  max-width: 350px;
+  text-align: right;
+}
+
+.tour-modal h4 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.tour-modal p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.tour-modal .nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tour-modal .nav-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: 2px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.tour-modal .nav-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.tour-modal .end-tour {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.tour-modal .end-tour:hover {
+  opacity: 0.9;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.form-input.error {
+  border-color: var(--accent);
+}
+
+.error-message {
+  color: var(--accent);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.success-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  min-height: 150px; /* Increased height */
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="modal-overlay" id="privacyModal">
+  <div class="privacy-modal">
+    <img src="https://i.postimg.cc/hvYswmtw/image.png" alt="TechSavvy Logo" class="logo" style="margin-bottom: 1rem;">
+    <h2>سياسة الخصوصية</h2>
+    <div class="privacy-content">
+      <h3>مقدمة</h3>
+      <p>نحن في TechSavvy نلتزم بحماية خصوصية مستخدمينا. تشرح هذه السياسة كيفية جمع واستخدام وحماية بياناتك الشخصية.</p>
+      
+      <h3>جمع البيانات</h3>
+      <p>نقوم بجمع المعلومات التي تقدمها لنا عند:</p>
+      <ul>
+        <li>تقديم طلب دعم فني</li>
+        <li>التواصل معنا</li>
+        <li>تحميل ملفات</li>
+      </ul>
+
+      <h3>استخدام البيانات</h3>
+      <p>نستخدم بياناتك لـ:</p>
+      <ul>
+        <li>تقديم الدعم الفني المطلوب</li>
+        <li>التواصل معك بخصوص طلبك</li>
+        <li>تحسين خدماتنا</li>
+      </ul>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <label>
+        <input type="checkbox" id="privacyAccept"> لقد قرأت وأوافق على سياسة الخصوصية
+      </label>
+      <button id="privacyContinue" class="submit-btn" style="margin-top: 1rem;" disabled>متابعة</button>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <img src="https://i.postimg.cc/hvYswmtw/image.png" alt="TechSavvy Logo" class="logo">
+  <h1>الدعم الفني المتخصص - محمد سيف</h1>
+  
+  <nav class="nav">
+    <button class="nav-btn">الخدمات</button>
+    <button class="nav-btn">تقديم طلب</button>
+    <button class="nav-btn">اتصل بنا</button>
+  </nav>
+</header>
+
+<main class="main">
+  <div class="search-bar">
+    <input type="search" class="search-input" placeholder="ابحث عن الخدمات أو المشكلات الفنية...">
+  </div>
+
+  <div class="section" id="services">
+    <h2>خدماتنا</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>تطوير المواقع الإلكترونية</h3>
+        <p>تصميم وتطوير مواقع احترافية متجاوبة مع جميع الأجهزة</p>
+      </div>
+      <div class="service-card">
+        <h3>حلول برمجية متكاملة</h3>
+        <p>تطوير تطبيقات مخصصة لتلبية احتياجات عملك</p>
+      </div>
+      <div class="service-card">
+        <h3>دعم فني 24/7</h3>
+        <p>فريق متخصص لحل جميع المشكلات التقنية</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>اتصل بنا</h2>
+    <div class="contact-info">
+      <h3>نحن هنا لمساعدتك</h3>
+      <p>يمكنك التواصل معنا عبر:</p>
+      <p><i class="fas fa-phone"></i> +967778039673</p>
+      <p><i class="fas fa-envelope"></i> zr0zr60@gmail.com</p>
+    </div>
+    <div class="social-links">
+      <a href="https://wa.me/+967778039673" class="social-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/zr0zr60" class="social-icon" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100081679610050" class="social-icon" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://github.com/zr0zr60" class="social-icon" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="section" id="requestForm">
+    <h2>تقديم طلب جديد</h2>
+    <form id="supportForm">
+      <div class="form-group">
+        <label class="form-label">الاسم الكامل</label>
+        <input type="text" class="form-input" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">الموقع (البلد/المدينة)</label>
+        <input type="text" class="form-input" name="location" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">نوع الخدمة</label>
+        <select class="form-input" required>
+          <option value="">اختر نوع الخدمة</option>
+          <option>إصلاح برمجيات</option>
+          <option>استشارة تقنية</option>
+          <option>تطوير أنظمة</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">تفاصيل الطلب</label>
+        <textarea class="form-textarea" name="details" rows="6" required placeholder="يرجى كتابة تفاصيل طلبك بشكل واضح..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">رقم التواصل</label>
+        <input type="tel" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">الملفات المرفقة</label>
+        <input type="file" class="form-input" multiple>
+      </div>
+
+      <button type="submit" class="submit-btn">إرسال الطلب</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>عن الشركة</h3>
+      <p>نحن شركة متخصصة في تقديم حلول تقنية متكاملة وخدمات الدعم الفني المتميز</p>
+    </div>
+    <div class="footer-section">
+      <h3>روابط سريعة</h3>
+      <p>الخدمات</p>
+      <p>تقديم طلب</p>
+      <p>اتصل بنا</p>
+    </div>
+    <div class="footer-section">
+      <h3>تواصل معنا</h3>
+      <p>هاتف: +967778039673</p>
+      <p>بريد إلكتروني: zr0zr60@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>تم تصميم وتطوير هذا الموقع بكل حب وإبداع بواسطة المهندس محمد سيف</p>
+    <p>جميع الحقوق محفوظة © 2024</p>
+  </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+  const BOT_TOKEN = '7472240270:AAEM4Ju5Wbias23ICXmdIjLFEYJKps2bXyg';
+  const CHAT_ID = '5867096888';
+
+  $('.nav-btn').click(function() {
+    const btnText = $(this).text();
+    $('.section').removeClass('active');
+    
+    switch(btnText) {
+      case 'الخدمات':
+        $('#services').addClass('active');
+        break;
+      case 'تقديم طلب':
+        $('#requestForm').addClass('active');
+        break;
+      case 'اتصل بنا':
+        $('#contact').addClass('active');
+        break;
+    }
+  });
+
+  $('#requestForm').addClass('active');
+
+  $('#supportForm').on('submit', function(e) {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    const formData = new FormData(this);
+    const files = $(this).find('input[type="file"]')[0].files;
+    
+    const messageData = {
+      fullName: $(this).find('input[name="fullName"]').val(),
+      location: $(this).find('input[name="location"]').val(),
+      service: $(this).find('select').val(),
+      details: $(this).find('textarea').val(),
+      phone: $(this).find('input[type="tel"]').val()
+    };
+
+    const message = `
+🔷 طلب دعم فني جديد:
+━━━━━━━━━━━━━━
+👤 الاسم: ${messageData.fullName}
+📍 الموقع: ${messageData.location}
+📋 نوع الخدمة: ${messageData.service}
+📝 التفاصيل: ${messageData.details}
+📱 رقم التواصل: ${messageData.phone}
+━━━━━━━━━━━━━━
+    `;
+
+    $.ajax({
+      url: `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      method: 'POST',
+      data: {
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'HTML'
+      },
+      success: function(response) {
+        if (files.length > 0) {
+          Array.from(files).forEach(file => {
+            const fileData = new FormData();
+            fileData.append('chat_id', CHAT_ID);
+            fileData.append('document', file);
+
+            $.ajax({
+              url: `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`,
+              method: 'POST',
+              data: fileData,
+              processData: false,
+              contentType: false,
+              success: function(fileResponse) {
+                console.log('File sent successfully:', file.name);
+              },
+              error: function(fileErr) {
+                console.error('Error sending file:', file.name, fileErr);
+              }
+            });
+          });
+        }
+        
+        alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
+        $('#supportForm')[0].reset();
+        showSuccessMessage();
+      },
+      error: function(err) {
+        alert('عذراً، حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+        console.error(err);
+      }
+    });
+  });
+
+  // Privacy Policy Handler
+  $('#privacyAccept').change(function() {
+    $('#privacyContinue').prop('disabled', !this.checked);
+  });
+
+  $('#privacyContinue').click(function() {
+    $('#privacyModal').fadeOut();
+    showTourPrompt();
+  });
+
+  // Tour Guide
+  function showTourPrompt() {
+    const tourPrompt = $(`
+      <div class="modal-overlay">
+        <div class="privacy-modal">
+          <h3>جولة إرشادية</h3>
+          <p>هل تريد أخذ جولة سريعة للتعرف على مميزات الموقع؟</p>
+          <div style="text-align: center; margin-top: 2rem;">
+            <button class="submit-btn" id="startTour">بدء الجولة</button>
+            <button class="nav-btn" id="skipTour">تخطي</button>
+          </div>
+        </div>
+      </div>
+    `).appendTo('body');
+
+    $('#startTour').click(function() {
+      tourPrompt.remove();
+      startTour();
+    });
+
+    $('#skipTour').click(function() {
+      tourPrompt.remove();
+    });
+  }
+
+  function startTour() {
+    const tourSteps = [
+      {
+        element: '.search-input',
+        title: 'البحث عن الخدمات',
+        content: 'ابحث عن الخدمات والحلول التقنية التي تحتاجها'
+      },
+      {
+        element: '#services',
+        title: 'خدماتنا',
+        content: 'تصفح مجموعة خدماتنا المتنوعة'
+      },
+      {
+        element: '#supportForm',
+        title: 'تقديم طلب',
+        content: 'قم بتقديم طلب للحصول على المساعدة التقنية'
+      },
+      {
+        element: '#contact',
+        title: 'تواصل معنا',
+        content: 'يمكنك التواصل معنا عبر قنوات متعددة'
+      }
+    ];
+
+    let currentStep = 0;
+
+    function showTourStep() {
+      const step = tourSteps[currentStep];
+      const $element = $(step.element);
+      const position = $element.offset();
+      const windowWidth = $(window).width();
+
+      $('.tour-modal').remove();
+
+      const tourModal = $(`
+        <div class="tour-modal">
+          <h4>${step.title}</h4>
+          <p>${step.content}</p>
+          <div class="nav-buttons">
+            ${currentStep > 0 ? '<button class="nav-btn prev-step">السابق</button>' : ''}
+            ${currentStep < tourSteps.length - 1 ? 
+              '<button class="nav-btn next-step">التالي</button>' : 
+              '<button class="nav-btn end-tour">إنهاء الجولة</button>'}
+          </div>
+        </div>
+      `).appendTo('body');
+
+      // Improved positioning logic
+      let leftPosition = position.left;
+      if (leftPosition + tourModal.outerWidth() > windowWidth) {
+        leftPosition = windowWidth - tourModal.outerWidth() - 20;
+      }
+
+      tourModal.css({
+        top: position.top + $element.outerHeight() + 15,
+        left: Math.max(20, leftPosition)
+      });
+
+      $('.next-step').click(() => {
+        currentStep++;
+        showTourStep();
+      });
+
+      $('.prev-step').click(() => {
+        currentStep--;
+        showTourStep();
+      });
+
+      $('.end-tour').click(() => {
+        tourModal.remove();
+      });
+    }
+
+    showTourStep();
+  }
+
+  // Form Validation
+  function validateForm() {
+    let isValid = true;
+    const required = ['fullName', 'location', 'service', 'details'];
+
+    required.forEach(field => {
+      const $field = $(`[name="${field}"]`);
+      const value = $field.val();
+
+      if (!value) {
+        isValid = false;
+        $field.addClass('error');
+        if (!$field.next('.error-message').length) {
+          $field.after(`<div class="error-message">هذا الحقل مطلوب</div>`);
+        }
+      } else {
+        $field.removeClass('error');
+        $field.next('.error-message').remove();
+      }
+    });
+
+    return isValid;
+  }
+
+  // Success Message
+  function showSuccessMessage() {
+    const successModal = $(`
+      <div class="modal-overlay">
+        <div class="success-modal">
+          <i class="fas fa-check-circle" style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;"></i>
+          <h3>تم إرسال طلبك بنجاح!</h3>
+          <p>سنقوم بالتواصل معك في أقرب وقت ممكن.</p>
+          <button class="submit-btn" style="margin-top: 1rem;">حسناً</button>
+        </div>
+      </div>
+    `).appendTo('body');
+
+    successModal.find('.submit-btn').click(() => {
+      successModal.remove();
+    });
+  }
+});
+</script>
+
+</body>
+</html>
